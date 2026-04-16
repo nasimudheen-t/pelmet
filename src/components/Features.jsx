@@ -1,7 +1,7 @@
-import React from 'react';
-import { ShieldCheck, HardHat, Scale, Truck, ChevronRight } from 'lucide-react';
-import { siteData } from '../data/siteData';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { ShieldCheck, HardHat, Scale, Truck, ChevronRight } from "lucide-react";
+import { siteData } from "../data/siteData";
+import { Link } from "react-router-dom";
 
 //  Map icon names manually (VERY IMPORTANT)
 const iconMap = {
@@ -14,13 +14,11 @@ const iconMap = {
 const Features = () => {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-
       {/* Light Background */}
       <div className="absolute top-0 left-0 w-48 h-48 bg-red-50 rounded-full opacity-50 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-red-50 rounded-full opacity-50 translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-red-100 text-red-600 text-xs font-bold uppercase tracking-widest mb-4">
@@ -32,14 +30,15 @@ const Features = () => {
           </h2>
 
           <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-            We combine decades of experience with modern technology to deliver durable plastic solutions.
+            We combine decades of experience with modern technology to deliver
+            durable plastic solutions.
           </p>
         </div>
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {siteData.features.map((feature, idx) => {
-            const Icon = iconMap[feature.icon]; 
+            const Icon = iconMap[feature.icon];
 
             return (
               <div
@@ -58,7 +57,7 @@ const Features = () => {
 
                 {/* Index */}
                 <span className="absolute top-5 right-5 text-3xl font-black text-slate-100 group-hover:text-red-100 transition-colors duration-300">
-                  {String(idx + 1).padStart(2, '0')}
+                  {String(idx + 1).padStart(2, "0")}
                 </span>
 
                 <h3 className="text-base font-bold text-slate-900 mb-2">
@@ -85,14 +84,13 @@ const Features = () => {
           </div>
 
           <Link
-            href="/products"
-            className="flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-red-50 text-red-600 font-bold text-sm rounded-full transition"
+            to="/products"
+            className="flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-red-50 text-red-600 font-bold text-sm rounded-full transition group"
           >
             Explore Products
             <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
-
       </div>
     </section>
   );

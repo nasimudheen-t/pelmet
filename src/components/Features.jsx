@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, HardHat, Scale, Truck, ChevronRight } from 'lucide-react';
 import { siteData } from '../data/siteData';
+import { Link } from 'react-router-dom';
 
 //  Map icon names manually (VERY IMPORTANT)
 const iconMap = {
@@ -83,13 +84,13 @@ const Features = () => {
             </p>
           </div>
 
-          <a
+          <Link
             href="/products"
             className="flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-red-50 text-red-600 font-bold text-sm rounded-full transition"
           >
             Explore Products
             <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
         </div>
 
       </div>

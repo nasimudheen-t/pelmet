@@ -16,15 +16,16 @@ const BlogDetail = () => {
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen">
-
         {/* HERO */}
-        <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-16">
+        <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-16 mt-20">
+          {" "}
           <div className="max-w-5xl mx-auto px-4">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               Uses of Plastic Products in Home and Industry
             </h1>
             <p className="mt-4 text-red-100 max-w-2xl">
-              Durable, affordable, and versatile plastic solutions for modern life.
+              Durable, affordable, and versatile plastic solutions for modern
+              life.
             </p>
           </div>
         </section>
@@ -36,25 +37,35 @@ const BlogDetail = () => {
 
         {/* CONTENT */}
         <article className="max-w-4xl mx-auto px-4 pb-16">
-
           {/* INTRO */}
           <div className="bg-white rounded-2xl p-6 shadow-sm mb-8">
             <p className="text-gray-700 leading-relaxed mb-4">
-              Uses of Plastic Products are an essential part of modern life, playing a major role in both households and industries. From everyday storage containers and kitchenware to industrial packaging, pipes, and custom components, plastic products offer durability, affordability, and versatility.
+              Uses of Plastic Products are an essential part of modern life,
+              playing a major role in both households and industries. From
+              everyday storage containers and kitchenware to industrial
+              packaging, pipes, and custom components, plastic products offer
+              durability, affordability, and versatility.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              At Pelmet, a leading plastic manufacturer in Kerala, we specialize in high-quality products made from 100% virgin plastic, ensuring safety, strength, and purity for every application.
+              At Pelmet, a leading plastic manufacturer in Kerala, we specialize
+              in high-quality products made from 100% virgin plastic, ensuring
+              safety, strength, and purity for every application.
             </p>
           </div>
 
           {/* PARAGRAPHS */}
           <div className="space-y-6 text-gray-700 leading-relaxed mb-10">
             <p>
-              The growing uses of plastic products have transformed the way we store, transport, and protect goods in daily life. Their lightweight nature, resistance to corrosion, and long-lasting performance make them ideal for a wide range of applications.
+              The growing uses of plastic products have transformed the way we
+              store, transport, and protect goods in daily life. Their
+              lightweight nature, resistance to corrosion, and long-lasting
+              performance make them ideal for a wide range of applications.
             </p>
 
             <p>
-              Plastic is one of the most versatile materials used in our daily lives. From household essentials to industrial tools, plastic products offer durability, affordability, and efficiency.
+              Plastic is one of the most versatile materials used in our daily
+              lives. From household essentials to industrial tools, plastic
+              products offer durability, affordability, and efficiency.
             </p>
           </div>
 
@@ -65,35 +76,36 @@ const BlogDetail = () => {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-
               {[
                 {
                   title: "Storage Containers",
-                  desc: "Kitchen containers and storage boxes made from food-grade plastic keep items fresh and safe."
+                  desc: "Kitchen containers and storage boxes made from food-grade plastic keep items fresh and safe.",
                 },
                 {
                   title: "Furniture & Accessories",
-                  desc: "Chairs, baskets, and racks are affordable, durable, and easy to maintain."
+                  desc: "Chairs, baskets, and racks are affordable, durable, and easy to maintain.",
                 },
                 {
                   title: "Kitchenware",
-                  desc: "Plates, bottles, and lunch boxes are safe, heat-resistant, and convenient."
+                  desc: "Plates, bottles, and lunch boxes are safe, heat-resistant, and convenient.",
                 },
                 {
                   title: "Cleaning Tools",
-                  desc: "Buckets, mugs, and brushes make daily cleaning efficient."
+                  desc: "Buckets, mugs, and brushes make daily cleaning efficient.",
                 },
                 {
                   title: "Child-Safe Products",
-                  desc: "Virgin plastic ensures safety for baby products and toys."
-                }
+                  desc: "Virgin plastic ensures safety for baby products and toys.",
+                },
               ].map((item, i) => (
-                <div key={i} className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+                <div
+                  key={i}
+                  className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition"
+                >
                   <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                   <p className="text-gray-600">{item.desc}</p>
                 </div>
               ))}
-
             </div>
           </section>
 
@@ -109,7 +121,7 @@ const BlogDetail = () => {
                 "Custom molded components for machinery",
                 "Pipes and fittings for plumbing and irrigation",
                 "Pallets and crates for transport",
-                "Safety equipment like helmets and panels"
+                "Safety equipment like helmets and panels",
               ].map((item, i) => (
                 <div key={i} className="bg-white p-4 rounded-lg shadow-sm">
                   {item}
@@ -139,7 +151,9 @@ const BlogDetail = () => {
               Conclusion
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              Plastic products have become indispensable in modern life. Pelmet continues to lead in providing high-quality plastic solutions for both home and industrial needs.
+              Plastic products have become indispensable in modern life. Pelmet
+              continues to lead in providing high-quality plastic solutions for
+              both home and industrial needs.
             </p>
           </section>
 
@@ -158,14 +172,14 @@ const BlogDetail = () => {
 
           {/* TAGS */}
           <div className="text-sm text-gray-500 mb-10">
-            Tagged: Household Plastic Items, Plastic Products Kerala, Uses of Plastic Product
+            Tagged: Household Plastic Items, Plastic Products Kerala, Uses of
+            Plastic Product
           </div>
 
           {/* COMMENTS */}
           <Suspense fallback={<p>Loading comments...</p>}>
             <Comments />
           </Suspense>
-
         </article>
       </div>
     </>

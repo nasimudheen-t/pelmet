@@ -10,7 +10,9 @@ import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import ContactPage from './pages/ContactPage';
 import Blog from './pages/Blog';
-import BlogDetail from './pages/BlogDetail';
+
+const BlogDetail = lazy(() => import("./pages/BlogDetail"));
+
 
 function App() {
   return (

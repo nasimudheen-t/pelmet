@@ -7,6 +7,7 @@ import {
   RefreshCw,
   Star,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const trustPoints = [
   { icon: ShieldCheck, label: "Advanced Manufacturing Standards" },
@@ -70,11 +71,19 @@ const Hero = () => {
 
             {/* BUTTONS */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
-              <button className="flex justify-center items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold rounded-full shadow-md">
-                Order Now
-              </button>
+              <a
+                href="https://wa.me/917510511113?text=Hello%2C%20I%20came%20across%20your%20website%20https%3A%2F%2Fpelmet.vercel.app%2F%20and%20I%27m%20interested%20in%20your%20products.%20Could%20you%20please%20share%20more%20details%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="flex justify-center items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold rounded-full shadow-md">
+                  Order Now
+                </button>
+              </a>
               <button className="flex justify-center items-center gap-2 px-5 py-2.5 border border-slate-300 text-slate-700 text-xs sm:text-sm font-bold rounded-full">
+                <Link to="/products">
                 Shop All Products
+                </Link>
               </button>
             </div>
 

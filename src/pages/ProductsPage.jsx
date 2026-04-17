@@ -1,16 +1,16 @@
-import React, { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useState, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 
-import products from '../data/products';
-import categories from '../constants/categories';
-import ProductCard from '../components/ProductCard';
+import products from "../data/products";
+import categories from "../constants/categories";
+import ProductCard from "../components/ProductCard";
 
 const ProductsPage = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState("All");
 
   // ✅ useMemo to prevent unnecessary recalculation
   const filtered = useMemo(() => {
-    return activeCategory === 'All'
+    return activeCategory === "All"
       ? products
       : products.filter((p) => p.category === activeCategory);
   }, [activeCategory]);
@@ -18,7 +18,30 @@ const ProductsPage = () => {
   return (
     <main className="pt-20 bg-white min-h-screen">
       <Helmet>
-        <title>Our Products | Best Plastic Manufacturer in Kerala</title>
+        <title>Best Plastic Manufacturer in Kerala | Pelmet</title>
+        <meta
+          name="description"
+          content="Pelmet is a leading plastic manufacturer in Kerala providing high-quality plastic products for industrial and commercial use."
+        />
+        <meta
+          name="keywords"
+          content="plastic manufacturer Kerala, plastic products Kerala, Pelmet"
+        />
+
+        {/* Open Graph (for WhatsApp / Facebook) */}
+        <meta
+          property="og:title"
+          content="Pelmet - Plastic Manufacturer Kerala"
+        />
+        <meta
+          property="og:description"
+          content="High-quality plastic products in Kerala."
+        />
+        <meta
+          property="og:image"
+          content="https://yourdomain.com/images/pelmet-new.png"
+        />
+        <meta property="og:url" content="https://yourdomain.com" />
       </Helmet>
 
       {/* Header */}
@@ -41,8 +64,8 @@ const ProductsPage = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
                   activeCategory === cat
-                    ? 'bg-slate-800 text-white'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
+                    ? "bg-slate-800 text-white"
+                    : "bg-slate-50 text-slate-600 hover:bg-slate-100"
                 }`}
               >
                 {cat}

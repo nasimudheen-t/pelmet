@@ -49,9 +49,9 @@ const Navbar = () => {
             </div>
           ))}
 
-          <button className="btn-primary py-2 px-5 text-sm">
-            Get Quote
-          </button>
+          {/* <button className="btn-primary py-2 px-5 text-sm">
+            Blog
+          </button> */}
         </div>
 
         {/* Mobile Toggle */}

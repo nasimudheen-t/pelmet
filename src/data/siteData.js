@@ -4,6 +4,7 @@ export const siteData = {
     { name: 'About', href: '/about' },
     { name: 'Products', href: '/products' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Blog', href: '/blog' },
   ],
   hero: {
     title: 'Best plastic manufacturer in kerala',

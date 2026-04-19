@@ -165,9 +165,12 @@ const BlogDetail = () => {
             <p className="mb-4">
               Contact Pelmet today for high-quality plastic solutions.
             </p>
-            <button className="bg-white text-red-600 px-6 py-2 rounded-full font-semibold">
+            <Link
+              to="/contact"
+              className="bg-white text-red-600 px-6 py-2 rounded-full font-semibold"
+            >
               Contact Now
-            </button>
+            </Link>
           </div>
 
           {/* TAGS */}

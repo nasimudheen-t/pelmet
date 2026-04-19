@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Send, MapPin, Phone, Mail, CheckCircle, Loader2 } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+import { Send, CheckCircle, Loader2 } from "lucide-react";
+import { siteData } from "../data/siteData";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,177 +15,139 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    setIsSubmitting(true);
-    console.log('Form Submitted:', data);
+  const onSubmit = async (data) => {
+    try {
+      setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+      await emailjs.send(
+        "service_miouosh",
+        "template_m97cadt",
+        {
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        },
+        "OUPq6_8Ba2FvRxZ2L",
+      );
+
       setIsSuccess(true);
       reset();
 
       setTimeout(() => setIsSuccess(false), 5000);
-    }, 2000);
+    } catch (error) {
+      console.error("Email error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-
           {/* LEFT */}
-          <div className="transition-all duration-500">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 text-red-600 text-xs font-bold uppercase tracking-wider mb-6">
-              <Mail className="w-3.5 h-3.5" />
-              Get in Touch
-            </div>
-
-            <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Let's Build Something <span className="text-red-600">Together</span>
+          <div>
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight">
+              Let's Build Something{" "}
+              <span className="text-red-600">Together</span>
             </h2>
-
-            <p className="text-slate-600 mb-8 text-base leading-relaxed">
-              Have a specific manufacturing requirement or need a custom quote?
-              Our experts are ready to assist you.
+            <p className="text-gray-600 mt-4">
+              Have a project in mind? Send me a message and I’ll get back to
+              you.
             </p>
-
-            {/* Contact Cards */}
-            <div className="space-y-4">
-              {[
-                {
-                  icon: MapPin,
-                  title: 'Headquarters',
-                  content: siteData.footer.contact.address,
-                },
-                {
-                  icon: Phone,
-                  title: 'Phone Support',
-                  content: siteData.footer.contact.phone,
-                  sub: 'Mon-Sat: 9AM - 6PM',
-                },
-                {
-                  icon: Mail,
-                  title: 'Email Us',
-                  content: siteData.footer.contact.email,
-                  sub: 'Response within 24 hours',
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex gap-4 p-5 rounded-2xl bg-white border border-slate-100 hover:border-red-200 hover:shadow-md transition-all duration-300"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600">
-                    <item.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                    <p className="text-slate-600 text-sm">{item.content}</p>
-                    {item.sub && (
-                      <p className="text-slate-400 text-xs mt-1">{item.sub}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Trust */}
-            <div className="mt-6 flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-red-100 border-2 border-white flex items-center justify-center text-xs font-bold text-red-600">
-                    ✓
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-slate-500">
-                <span className="font-semibold text-slate-700">
-                  Trusted by 500+ clients
-                </span>
-              </p>
-            </div>
           </div>
 
-          {/* RIGHT FORM */}
-          <div className="relative">
-            <div className="bg-white rounded-3xl border border-slate-100 shadow-lg overflow-hidden">
+          {/* FORM */}
+          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+            <h3 className="text-xl font-semibold mb-6 text-gray-800">
+              Send Message
+            </h3>
 
-              {/* Header */}
-              <div className="bg-gradient-to-r from-red-600 to-red-500 px-6 py-5">
-                <h3 className="text-lg font-bold text-white">Send us a Message</h3>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+              {/* Name */}
+              <div>
+                <input
+                  placeholder="Full Name"
+                  {...register("name", { required: "Name is required" })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.name.message}
+                  </p>
+                )}
               </div>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
+              {/* Email */}
+              <div>
+                <input
+                  placeholder="Email Address"
+                  {...register("email", {
+                    required: "Email required",
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Invalid email",
+                    },
+                  })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
 
-                {/* Name */}
-                <div>
-                  <label htmlFor='name' className="text-sm font-semibold text-slate-700">
-                    Full Name *
-                  </label>
-                  <input
-                    id='name'
-                    {...register('name', { required: 'Name is required' })}
-                    className="w-full mt-1 border border-slate-200 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-red-500/20"
-                  />
-                  {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
-                </div>
+              {/* Message */}
+              <div>
+                <textarea
+                  placeholder="Your Message..."
+                  rows="4"
+                  {...register("message", { required: "Message required" })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition resize-none"
+                />
+                {errors.message && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.message.message}
+                  </p>
+                )}
+              </div>
 
-                {/* Email */}
-                <div>
-                  <label className="text-sm font-semibold text-slate-700">
-                    Email *
-                  </label>
-                  <input
-                    {...register('email', { required: 'Email required' })}
-                    className="w-full mt-1 border border-slate-200 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-red-500/20"
-                  />
-                  {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="text-sm font-semibold text-slate-700">
-                    Message *
-                  </label>
-                  <textarea
-                    rows="4"
-                    {...register('message', { required: 'Message required' })}
-                    className="w-full mt-1 border border-slate-200 rounded-xl px-4 py-2.5"
-                  />
-                  {errors.message && <p className="text-red-500 text-xs">{errors.message.message}</p>}
-                </div>
-
-                {/* Button */}
-                <button
-                  type="submit"
-                  aria-label="Open menu"
-                  disabled={isSubmitting}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl flex items-center justify-center gap-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="w-4 h-4" />
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-
-            {/* Success Toast */}
+              {/* Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </form>
             {isSuccess && (
-              <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 z-50">
-                <CheckCircle className="w-5 h-5" />
-                Message sent successfully!
-              </div>
+              <p className="text-green-600 text-sm text-center mt-2">
+                ✅ Message sent successfully!
+              </p>
             )}
           </div>
         </div>
       </div>
+
+      {/* Success Toast */}
+      {isSuccess && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-green-500 text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2 animate-fade-in">
+          <CheckCircle className="w-5 h-5" />
+          Message sent successfully!
+        </div>
+      )}
     </section>
   );
 };

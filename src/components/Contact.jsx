@@ -15,32 +15,60 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      setIsSubmitting(true);
+  // const onSubmit = async (data) => {
+  //   try {
+  //     setIsSubmitting(true);
 
-      await emailjs.send(
-        "service_miouosh",
-        "template_m97cadt",
-        {
-          name: data.name,
-          email: data.email,
-          message: data.message,
+  //     await emailjs.send(
+  //       "service_miouosh",
+  //       "template_m97cadt",
+  //       {
+  //         name: data.name,
+  //         email: data.email,
+  //         message: data.message,
+  //       },
+  //       "OUPq6_8Ba2FvRxZ2L",
+  //     );
+
+  //     setIsSuccess(true);
+  //     reset();
+
+  //     setTimeout(() => setIsSuccess(false), 5000);
+  //   } catch (error) {
+  //     console.error("Email error:", error);
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
+ const onSubmit = async (data) => {
+  try {
+    setIsSubmitting(true);
+
+    const res = await fetch(
+      `${window.location.origin}/api/contact`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        "OUPq6_8Ba2FvRxZ2L",
-      );
+        body: JSON.stringify(data),
+      }
+    );
 
-      setIsSuccess(true);
-      reset();
-
-      setTimeout(() => setIsSuccess(false), 5000);
-    } catch (error) {
-      console.error("Email error:", error);
-    } finally {
-      setIsSubmitting(false);
+    if (!res.ok) {
+      throw new Error("Failed to send email");
     }
-  };
 
+    setIsSuccess(true);
+    reset();
+    setTimeout(() => setIsSuccess(false), 5000);
+  } catch (error) {
+    console.error("Error:", error);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 lg:px-16">
@@ -133,8 +161,8 @@ const Contact = () => {
               </button>
             </form>
             {isSuccess && (
-              <p className="text-green-600 text-sm text-center mt-2">
-                ✅ Message sent successfully!
+              <p className="text-green-600 text-sm text-center mt-2 transition-all duration-300">
+                Your message has been sent. I’ll get back to you soon.
               </p>
             )}
           </div>

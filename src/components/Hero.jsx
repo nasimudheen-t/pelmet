@@ -111,22 +111,30 @@ const Hero = () => {
               ))}
             </div>
           </div>
-
           {/* RIGHT */}
-          <div className="relative flex items-center justify-center mt-12 sm:mt-10 lg:mt-0 scale-90 sm:scale-100">
-            {/* Circles */}
-            <div className="absolute w-[160px] sm:w-[300px] md:w-[380px] h-[160px] sm:h-[300px] md:h-[380px] rounded-full border border-dashed border-red-200 animate-spin" />
-            <div className="absolute w-[130px] sm:w-[240px] md:w-[300px] h-[130px] sm:h-[240px] md:h-[300px] rounded-full bg-red-100/50" />
+          <div className="relative flex items-center justify-center mt-12 sm:mt-10 lg:mt-0">
+            {/* Circles (centered properly) */}
+            <div className="absolute w-[200px] sm:w-[300px] md:w-[380px] h-[200px] sm:h-[300px] md:h-[380px] rounded-full border border-dashed border-red-200 animate-spin" />
+            <div className="absolute w-[160px] sm:w-[240px] md:w-[300px] h-[160px] sm:h-[240px] md:h-[300px] rounded-full bg-red-100/50" />
 
-            {/* IMAGE */}
-            <img
-              src={products[currentIndex].image}
-              alt={products[currentIndex].name}
-              className="relative z-10 w-[180px] sm:w-[300px] md:w-[420px] drop-shadow-xl transition-all duration-500 ease-in-out"
-              fetchpriority="high"
-              width="420"
-              height="420"
-            />
+            {/* SLIDER WRAPPER (KEY FIX) */}
+            <div className="relative z-10 flex items-center justify-center w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] overflow-hidden">
+              {/* INNER TRACK */}
+              <div className="flex items-center gap-6 animate-scroll">
+                {[...products, ...products].map((item, i) => (
+                  <img
+                    key={i}
+                    src={item.image}
+                    alt={item.name}
+                    className="w-[110px] sm:w-[160px] md:w-[200px] object-contain drop-shadow-xl shrink-0"
+                  />
+                ))}
+              </div>
+
+              {/* Soft fade edges */}
+              <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+              <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+            </div>
 
             {/* BADGES */}
             <div className="hidden sm:flex absolute top-4 left-0 bg-white rounded-xl shadow px-3 py-2 text-[10px] items-center gap-2">

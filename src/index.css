@@ -44,3 +44,17 @@
     @apply bg-white hover:bg-slate-50 text-primary-900 px-6 py-3 rounded-xl font-medium transition-all duration-300 border border-slate-200 shadow-sm;
   }
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}

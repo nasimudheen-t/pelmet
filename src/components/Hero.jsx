@@ -2,7 +2,6 @@ import React from "react";
 import { ShieldCheck, Zap, RefreshCw, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import products from "../data/products";
-import { useEffect, useState } from "react";
 
 const trustPoints = [
   { icon: ShieldCheck, label: "Advanced Manufacturing Standards" },
@@ -18,15 +17,7 @@ const stats = [
 ];
 
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % products.length);
-    }, 2500); // change every 2.5 sec
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="relative min-h-[100vh] sm:min-h-[90vh] flex items-center pt-20 sm:pt-16 overflow-hidden bg-white">

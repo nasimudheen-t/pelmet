@@ -43,7 +43,7 @@ export const siteData = {
       'Sustainable and recyclable materials',
       'Global distribution network',
     ],
-    image: '/images/about.webp',
+    image: '/images/pelmet-about.jpeg',
     stats: [
       { label: "Country's Clients", value: 5, suffix: '+' },
       { label: "Years of Experience", value: 10, suffix: '+' },

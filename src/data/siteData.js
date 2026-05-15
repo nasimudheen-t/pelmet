@@ -109,7 +109,7 @@ export const siteData = {
   footer: {
     description: 'Leading the way in plastic manufacturing with innovation, sustainability, and quality since 1999.',
     contact: {
-      address: '123 Industrial Way, Manufacturing District, City 56789',
+      address: '13/107 - A, ELAMBRA, ELANKUR, MANJERI, MALAPPURAM KERALA - 676122 ',
       whatsapp :"+91 7510511113",
       phone: '+91 7510511113',
       email: 'pelmet.foursco@gmail.com',

@@ -79,6 +79,81 @@ const products = [
     slug: 'cutting-broad',
     tag: null,
   },
+
+  // Local public/images/products images
+
+  {
+    id: 11,
+    name: 'Carry Basket',
+    category: 'Utility',
+    image: '/images/products/carry-basket.jpeg',
+    slug: 'carry-basket',
+    tag: null,
+  },
+  {
+    id: 12,
+    name: 'Carry Bin',
+    category: 'Storage',
+    image: '/images/products/carry-bin.jpeg',
+    slug: 'carry-bin',
+    tag: null,
+  },
+  {
+    id: 13,
+    name: 'Jar Set',
+    category: 'Kitchen',
+    image: '/images/products/Jar-set.jpeg',
+    slug: 'jar-set',
+    tag: 'Popular',
+  },
+  {
+    id: 14,
+    name: 'Multi Basket Brown',
+    category: 'Storage',
+    image: '/images/products/Multi-Basket-brown.jpeg',
+    slug: 'multi-basket-brown',
+    tag: null,
+  },
+  {
+    id: 15,
+    name: 'Multi Basket',
+    category: 'Storage',
+    image: '/images/products/Multi-Basket.jpeg',
+    slug: 'multi-basket',
+    tag: null,
+  },
+  {
+    id: 16,
+    name: 'Red Carry Bin',
+    category: 'Storage',
+    image: '/images/products/Red-carry-bin.jpeg',
+    slug: 'red-carry-bin',
+    tag: 'New',
+  },
+  {
+    id: 17,
+    name: 'Serve Plate',
+    category: 'Kitchen',
+    image: '/images/products/Serve-Plate.jpeg',
+    slug: 'serve-plate',
+    tag: null,
+  },
+  {
+    id: 18,
+    name: 'Snack Serve Tray',
+    category: 'Kitchen',
+    image: '/images/products/snack-serve-tray.jpeg',
+    slug: 'snack-serve-tray',
+    tag: null,
+  },
+  {
+    id: 19,
+    name: 'Waste Bin',
+    category: 'Utility',
+    image: '/images/products/Waste-bin.jpeg',
+    slug: 'waste-bin',
+    tag: null,
+  },
 ];
 
 export default products;

@@ -17,8 +17,6 @@ const stats = [
 ];
 
 const Hero = () => {
-
-
   return (
     <div className="relative min-h-[100vh] sm:min-h-[90vh] flex items-center pt-20 sm:pt-16 overflow-hidden bg-white">
       {/* Background */}
@@ -111,7 +109,7 @@ const Hero = () => {
             {/* SLIDER WRAPPER (KEY FIX) */}
             <div className="relative z-10 flex items-center justify-center w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] overflow-hidden">
               {/* INNER TRACK */}
-              <div className="flex items-center gap-6 animate-scroll">
+              <div className="flex items-center gap-12 animate-scroll">
                 {[...products, ...products].map((item, i) => (
                   <img
                     key={i}
